@@ -13,17 +13,33 @@
 
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 		<script type="text/javascript">
-			var myArray  = new Array(20);
+			var N = 20;
+			var myArray  = new Array(N);
 
-			for(var i=0; i < myArray.length; i++) {
-				myArray[i] = i;
-			}
+			reset();
+			ConsoleOut();
 			myArray.splice(3, 10, "test");
-			ConsoleOut(myArray.length);
+			ConsoleOut();
+			reset();
+			myArray.splice(3, 0, "test");
+			ConsoleOut();
+			reset();
+			myArray.splice(3, 1);
+			ConsoleOut();
+			reset();
+			myArray.splice(3);
+			ConsoleOut();
 			
-			function ConsoleOut(length) {
+
+			function reset() {
+				for(var i=0; i < N; i++) {
+					myArray[i] = i;
+				}				
+			}
+			
+			function ConsoleOut() {
 				var out = "test for array splice   : ";
-				for (var i=0; i < length; i++) out += myArray[i] + "  ";
+				for (var i=0; i < myArray.length; i++) out += myArray[i] + "  ";
 				console.log(out);
 			}
 		</script>
